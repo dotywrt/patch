@@ -1,0 +1,32 @@
+From 29ec82412b5b81e2d7f02f5197783f5130b8e4f2 Mon Sep 17 00:00:00 2001
+From: Marty Jones <mj8263788@gmail.com>
+Date: Wed, 12 Mar 2025 20:35:49 -0400
+Subject: [PATCH] cpu v3
+
+---
+ admin/htop/patches/08-cpu-frequency.patch | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+ create mode 100644 admin/htop/patches/08-cpu-frequency.patch
+
+diff --git a/admin/htop/patches/08-cpu-frequency.patch b/admin/htop/patches/08-cpu-frequency.patch
+new file mode 100644
+index 000000000..84531107d
+--- /dev/null
++++ b/admin/htop/patches/08-cpu-frequency.patch
+@@ -0,0 +1,14 @@
++--- a/Settings.c
+++++ b/Settings.c
++@@ -803,9 +803,9 @@ Settings* Settings_new(const Machine* ho
++    this->detailedCPUTime = false;
++    this->countCPUsFromOne = false;
++    this->showCPUUsage = true;
++-   this->showCPUFrequency = false;
+++   this->showCPUFrequency = true;
++    #ifdef BUILD_WITH_CPU_TEMP
++-   this->showCPUTemperature = false;
+++   this->showCPUTemperature = true;
++    this->degreeFahrenheit = false;
++    #endif
++    this->showCachedMemory = true;
+-- 
+2.46.0
